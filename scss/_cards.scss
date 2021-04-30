@@ -17,18 +17,14 @@
       width: 100%;
       padding: 16px;
       overflow-y: auto;
-      transition: transform 0.4s cubic-bezier(.73,.06,.95,.86), opacity 0.5s cubic-bezier(.96,.02,.9,.9);
+      transition: transform 0.5s cubic-bezier(.75,.06,.95,.85), opacity 0.5s cubic-bezier(.96,.02,.9,.9);
       &.offscreen {
         opacity: 0;
-        transform: translateY(-50%);
+        transform: translateY(-150%);
       }
-      &.new {
-        transform: translateY(10px);
-      }
-      border-radius: 4px;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.7);
+      border-radius: 16px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
       background-color: #eee;
-      color: #eee;
       &:nth-child(1) {
         top: 10px;
       }

@@ -1,4 +1,4 @@
-$primary-color: #6688ff;
+$primary-color: #12d5c2;
 $warning-color: #ff6688;
 
 @import "cards";
@@ -18,9 +18,9 @@ html, body {
 }
 
 body {
-  background: rgb(13,15,19);
-  background: linear-gradient(0deg, rgba(13,15,19,1) 0%, rgba(38,57,70,1) 100%);
-  color: #eee;
+  background: rgb(13,123,148);
+  background: linear-gradient(0deg, rgba(13,123,148,1) 0%, rgba(48,242,223,1) 100%);
+  color: #111;
 }
 
 .centered {
@@ -47,9 +47,11 @@ a {
 
 
 button, .btn {
-  border-radius: 14px;
+  border-radius: 50px;
   padding: 12px 16px;
   font-weight: 600;
+  font-size: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   cursor: pointer;
   transition: transform 0.05s;
   outline: none;
@@ -62,12 +64,12 @@ button, .btn {
   &.primary {
     background: $primary-color;
     color: white;
-    border: 2px solid $primary-color;
+    border: none;
   }
   &.warning {
     background: $warning-color;
     color: white;
-    border: 2px solid $warning-color;
+    border: none;
   }
   &:disabled {
     background: #aaa;

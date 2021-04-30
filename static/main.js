@@ -3,14 +3,24 @@ const rendered = Mustache.render(template, {});
 
 const cardsWrapper = document.querySelector('.cards-wrapper')
 
-if (cardsWrapper.childElementCount > 1) {
-  cardsWrapper.removeChild(cardsWrapper.lastChild)
-}
-const newChild = document.createElement('div')
-newChild.classList.add('card')
-newChild.innerHTML = rendered
-cardsWrapper.appendChild(newChild)
-
 function start (language) {
-  alert(language)
+  console.log(language)
+  showNextCard(language + '<br><button class="primary">test</button>')
 }
+
+function showNextCard (content) {
+  let oldCard = cardsWrapper.childElementCount > 1 ? cardsWrapper.lastChild : null
+  const newCard = document.createElement('div')
+  newCard.classList.add('card')
+  newCard.innerHTML = content
+  if (oldCard) {
+    cardsWrapper.insertBefore(newCard, oldCard)
+    oldCard.classList.add('offscreen')
+    setTimeout(() => {
+      cardsWrapper.removeChild(oldCard)
+    }, 500)
+  } else
+    cardsWrapper.appendChild(newCard)
+}
+
+showNextCard(rendered)
