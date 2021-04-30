@@ -1,0 +1,25 @@
+{
+  "name": "meeting-help",
+  "version": "0.0.1",
+  "description": "fsmed-hd online meeting help",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "brunch build",
+    "watch-css": "brunch watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lulebe/meeting-help.git"
+  },
+  "author": "Leander Berg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lulebe/meeting-help/issues"
+  },
+  "homepage": "https://github.com/lulebe/meeting-help#readme",
+  "devDependencies": {
+    "brunch": "^4.0.0",
+    "sass-brunch": "^3.0.0"
+  }
+}
