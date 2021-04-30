@@ -64,7 +64,7 @@ html, body {
 
 body {
   background: #0d7b94;
-  background: linear-gradient(0deg, #0d7b94 0%, #30f2df 100%);
+  background: linear-gradient(-20deg, #0d7b94 0%, #30f2df 100%);
   color: #111;
 }
 
