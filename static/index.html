@@ -16,31 +16,87 @@
   <meta name="theme-color" content="#12d5c2">
   <title>Meeting Help</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .ripple-wrapper {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .lds-ripple {
+      display: block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .lds-ripple div {
+      position: absolute;
+      border: 4px solid #333;
+      opacity: 1;
+      border-radius: 50%;
+      animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+    .lds-ripple div:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+    @keyframes lds-ripple {
+      0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <h1 class="title">Meeting Help</h1>
 
+  <div class="back-btn" onclick="back()">
+    <img src="images/back.svg">
+  </div>
+
+  <div class="language-picker">
+    <div class="btn-menu" onclick="toggleLanguageMenu()"><img src="images/translate.svg"></div>
+    <div class="language-menu">
+      <img src="images/de.svg" class="flag" onclick="setLanguage('de')">
+      <br>
+      <img src="images/en.svg" class="flag" onclick="setLanguage('en')">
+    </div>
+  </div>
+
   <div class="cards-container">
     <div class="cards-wrapper">
       <div class="card empty">&nbsp;</div>
+      <div class="card">
+        <div class="ripple-wrapper"><div class="lds-ripple"><div></div><div></div></div></div>
+      </div>
     </div>
-    
   </div>
 
 
-  <script id="tmpl-card-picklng" type="x-tmpl-mustache">
-    <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-      <img src="images/de.svg" class="flag" onclick="start('de')">
-      <img src="images/en.svg" class="flag" onclick="start('en')">
+  <script id="tmpl-card-std" type="x-tmpl-mustache">
+    <h3>{{title}}</h3>
+    <p>{{text}}</p>
+    <div class="actions">
+      {{#actions}}
+        <button onclick="action({{num}})" class="primary">{{text}}</button>
+      {{/actions}}
     </div>
   </script>
 
 
-  <script id="tmpl-card-std" type="x-tmpl-mustache"></script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/mustache@4/mustache.min.js"></script>
+  <script src="mustache.js"></script>
   <script src="qwest.js"></script>
+  <script src="textdata.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

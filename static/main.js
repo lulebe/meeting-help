@@ -1,5 +1,6 @@
-const template = document.getElementById('tmpl-card-picklng').innerHTML;
-const rendered = Mustache.render(template, {});
+//const rendered = Mustache.render(template, {});
+let language = 'de'
+let currentPath = []
 
 const cardsWrapper = document.querySelector('.cards-wrapper')
 
@@ -9,18 +10,44 @@ function start (language) {
 }
 
 function showNextCard (content) {
-  let oldCard = cardsWrapper.childElementCount > 1 ? cardsWrapper.lastChild : null
+  let oldCard = cardsWrapper.lastElementChild
   const newCard = document.createElement('div')
   newCard.classList.add('card')
   newCard.innerHTML = content
-  if (oldCard) {
-    cardsWrapper.insertBefore(newCard, oldCard)
-    oldCard.classList.add('offscreen')
-    setTimeout(() => {
-      cardsWrapper.removeChild(oldCard)
-    }, 500)
-  } else
-    cardsWrapper.appendChild(newCard)
+  cardsWrapper.insertBefore(newCard, oldCard)
+  oldCard.classList.add('offscreen')
+  setTimeout(() => {
+    cardsWrapper.removeChild(oldCard)
+  }, 500)
 }
 
-showNextCard(rendered)
+function renderCard (path) {
+  let currentData = data[language]
+  path.forEach(item => {
+    currentData = currentData.actions[item].data
+  })
+  const renderOpts = {
+    title: currentData.title,
+    text: currentData.text,
+    actions: currentData.actions.map((a, i) => ({text: a.text, num: i}))
+  }
+  return Mustache.render(document.getElementById('tmpl-card-std').innerHTML, renderOpts)
+}
+
+function toggleLanguageMenu() {
+  document.querySelector('.language-menu').classList.toggle('visible')
+}
+
+function setLanguage (lang) {
+  language = lang
+  showNextCard(renderCard(currentPath))
+}
+
+function action (num) {
+  currentPath.push(num)
+  showNextCard(renderCard(currentPath))
+}
+
+(function () {
+  showNextCard(renderCard([]))
+})()

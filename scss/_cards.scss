@@ -28,21 +28,10 @@
       &:nth-child(1) {
         top: 10px;
       }
+      .actions {
+        display: flex;
+        justify-content: space-evenly;
+      }
     }
-  }
-}
-
-.flag {
-  width: 70%;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 16px;
-  &:hover {
-    box-shadow: 0 0 30px rgba(0,0,0,0.35);
-    transform: scale(1.05);
-  }
-  &:active {
-    transform: scale(0.98);
   }
 }
