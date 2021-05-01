@@ -53,11 +53,16 @@ function renderCard (path) {
 
 function toggleLanguageMenu() {
   document.querySelector('.language-menu').classList.toggle('visible')
+  if (document.querySelector('.language-menu').classList.contains('visible')) { //now visible
+    document.querySelector('.language-picker .btn-menu').classList.add('opened')
+  } else {
+    document.querySelector('.language-picker .btn-menu').classList.remove('opened')
+  }
 }
 
 function setLanguage (lang) {
   language = lang
-  document.querySelector('.language-menu').classList.remove('visible')
+  toggleLanguageMenu()
   const content = renderCard(currentPath)
   const oldCard = cardsWrapper.lastElementChild
   const newCard = document.createElement('div')
