@@ -16,8 +16,8 @@ function renderCard (path) {
 function showCards () {
   const cardsWrapper = document.getElementById('cards-list')
   cardsWrapper.innerHTML = ""
-  const path = document.getElementById('inp-code').value.split('-').map(i => parseInt(i))
-  const cards = path.map((_, i) => ({html: renderCard(path.slice(0,i)), clickedId: i < path.length-1 ? path.slice(i,i+1) : -1}))
+  const path = document.getElementById('inp-code').value.split('-').map(i => parseInt(i)).concat([-1])
+  const cards = path.map((_, i) => ({html: renderCard(path.slice(0,i)), clickedId: i < path.length ? path.slice(i,i+1) : -1}))
   cards.forEach(card => {
     const newCard = document.createElement('div')
     newCard.classList.add('card')
