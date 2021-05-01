@@ -40,6 +40,7 @@ function toggleLanguageMenu() {
 
 function setLanguage (lang) {
   language = lang
+  document.querySelector('.language-menu').classList.remove('visible')
   showNextCard(renderCard(currentPath))
 }
 
