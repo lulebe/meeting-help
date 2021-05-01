@@ -17,9 +17,8 @@
       width: 100%;
       padding: 16px;
       overflow-y: auto;
-      transition: transform 0.5s cubic-bezier(.75,.06,.95,.85), opacity 0.5s cubic-bezier(.96,.02,.9,.9);
+      transition: transform 0.5s cubic-bezier(.75,.06,.95,.85);
       &.offscreen {
-        opacity: 0;
         transform: translateY(-150%);
       }
       border-radius: 16px;
