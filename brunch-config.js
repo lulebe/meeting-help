@@ -30,7 +30,7 @@ const htmlmin = require('html-minifier').minify
 function compileTemplates () {
   const startTime = (new Date()).getTime()
   const templates = compileTemplatesInFolder('./templates')
-  templates.data[-1] = compileTemplatesInFolder('./templates/-1')
+  templates[-1] = compileTemplatesInFolder('./templates/-1')
   fs.writeFileSync('./public/templates.json', JSON.stringify(templates))
   const duration = (new Date()).getTime() - startTime
   const d = new Date()

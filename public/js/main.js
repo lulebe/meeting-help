@@ -49,7 +49,7 @@ function renderCard (path) {
     currentData = currentData.data[item]
   })
   if (path.length > 0 && path[path.length-1] == -1) {
-    return data[-1][language].replace('---PATHCODE---', path.slice(0,-1).join('-'))
+    return data[-1].card[language].replace('---PATHCODE---', path.slice(0,-1).join('-'))
   }
   return currentData.card[language] || currentData.card['en']
 }
