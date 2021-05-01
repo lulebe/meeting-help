@@ -74,8 +74,18 @@ function setLanguage (lang) {
 }
 
 function action (num) {
+  if (!pathExists(currentPath.concat([num]))) return
   currentPath.push(num)
   showNextCard(renderCard(currentPath))
+}
+
+function pathExists (path) {
+  let currentData = data
+  for (let i = 0; i < path.length; i++) {
+    currentData = currentData.data[path[i]]
+    if (!currentData) return false
+  }
+  return true
 }
 
 (function () {
