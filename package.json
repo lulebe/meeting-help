@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "brunch build",
+    "build": "brunch build --production",
     "watch": "brunch watch -s"
   },
   "repository": {
@@ -21,7 +21,6 @@
   "devDependencies": {
     "brunch": "^4.0.0",
     "html-minifier": "^4.0.0",
-    "marked": "^2.0.3",
     "sass-brunch": "^3.0.0"
   }
 }

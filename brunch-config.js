@@ -1,6 +1,7 @@
 exports.config = {
+  sourceMaps: false,
   paths: {
-    public: './',
+    public: './public',
     watched: ['scss', 'templates']
   },
   files: {
@@ -16,7 +17,9 @@ exports.config = {
     }
   },
   hooks: {
-    onCompile: compileTemplates
+    onCompile () {
+      compileTemplates()
+    }
   }
 }
 
@@ -27,7 +30,7 @@ const htmlmin = require('html-minifier').minify
 function compileTemplates () {
   const startTime = (new Date()).getTime()
   const templates = compileTemplatesInFolder('./templates')
-  fs.writeFileSync('./templates.json', JSON.stringify(templates))
+  fs.writeFileSync('./public/templates.json', JSON.stringify(templates))
   const duration = (new Date()).getTime() - startTime
   const d = new Date()
   const time = (""+d.getHours()).padStart(2, "0") + ":" + (""+d.getMinutes()).padStart(2, "0") + ":" + (""+d.getSeconds()).padStart(2, "0")

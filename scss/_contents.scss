@@ -22,6 +22,9 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: space-evenly;
+    button, .btn {
+      margin-top: 8px;
+    }
   }
   .actions-compound {
     flex-grow: 1;
