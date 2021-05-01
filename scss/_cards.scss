@@ -4,7 +4,7 @@
   max-width: 700px;
   margin: 0 auto;
   top: 0;
-  padding: 125px 25px 25px 25px;
+  padding: 125px 16px 25px 16px;
   display: flex;
   align-items: stretch;
   justify-content: stretch;
@@ -12,24 +12,29 @@
     position: relative;
     width: 100%;
     .card {
+      display: flex;
+      flex-direction: column;
       position: absolute;
       height: 100%;
       width: 100%;
       padding: 16px;
       overflow-y: auto;
-      transition: transform 0.5s cubic-bezier(.75,.06,.95,.85);
+      transition: transform 0.5s, opacity 0.5s;
       &.offscreen {
         transform: translateY(-150%);
+      }
+      &.oldlang {
+        transform: rotate(180deg);
+        opacity: 0;
+      }
+      &.newlang {
+        transform: rotate(-180deg);
       }
       border-radius: 16px;
       box-shadow: 0 2px 20px rgba(0,0,0,0.25);
       background-color: #eee;
       &:nth-child(1) {
         top: 10px;
-      }
-      .actions {
-        display: flex;
-        justify-content: space-evenly;
       }
     }
   }

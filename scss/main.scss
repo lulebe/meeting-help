@@ -2,6 +2,7 @@ $primary-color: #12d5c2;
 $warning-color: #ff6688;
 
 @import "cards";
+@import "contents";
 
 * {
   box-sizing: border-box;
@@ -15,6 +16,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -54,16 +56,14 @@ button, .btn {
   cursor: pointer;
   transition: transform 0.05s;
   outline: none;
+  background: $primary-color;
+  color: white;
+  border: none;
   &:hover {
     transform: scale(1.03);
   }
   &:active:hover {
     transform: scale(0.98);
-  }
-  &.primary {
-    background: $primary-color;
-    color: white;
-    border: none;
   }
   &.warning {
     background: $warning-color;
@@ -148,10 +148,10 @@ button, .btn {
       display: block;
     }
     position: relative;
-    top: 16px;
+    top: 8px;
     img {
       width: 40px;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 1px 5px rgba(0,0,0,0.2);

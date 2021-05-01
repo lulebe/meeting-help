@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "brunch build",
-    "watch-css": "brunch watch"
+    "watch": "brunch watch -s"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "homepage": "https://github.com/lulebe/meeting-help#readme",
   "devDependencies": {
     "brunch": "^4.0.0",
+    "html-minifier": "^4.0.0",
+    "marked": "^2.0.3",
     "sass-brunch": "^3.0.0"
   }
 }
