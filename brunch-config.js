@@ -30,6 +30,7 @@ const htmlmin = require('html-minifier').minify
 function compileTemplates () {
   const startTime = (new Date()).getTime()
   const templates = compileTemplatesInFolder('./templates')
+  templates.data[-1] = compileTemplatesInFolder('./templates/-1')
   fs.writeFileSync('./public/templates.json', JSON.stringify(templates))
   const duration = (new Date()).getTime() - startTime
   const d = new Date()
@@ -52,7 +53,7 @@ function compileTemplatesInFolder (dirPath) {
           templates.card[item.split('.')[0]] = html
         })
   templates.data = listing
-                          .filter(item => fs.lstatSync(path.join(dirPath, item)).isDirectory())
+                          .filter(item => fs.lstatSync(path.join(dirPath, item)).isDirectory() && item != "-1")
                           .sort((a, b) => parseInt(path.basename(a)) - parseInt(path.basename(b)))
                           .map(item => compileTemplatesInFolder(path.join(dirPath, item)))
   return templates

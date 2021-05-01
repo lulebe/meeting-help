@@ -48,6 +48,9 @@ function renderCard (path) {
   path.forEach(item => {
     currentData = currentData.data[item]
   })
+  if (path.length > 0 && path[path.length-1] == -1) {
+    return data[-1][language].replace('---PATHCODE---', path.slice(0,-1).join('-'))
+  }
   return currentData.card[language] || currentData.card['en']
 }
 
@@ -88,7 +91,7 @@ function pathExists (path) {
   let currentData = data
   for (let i = 0; i < path.length; i++) {
     currentData = currentData.data[path[i]]
-    if (!currentData) return false
+    if (!currentData && !(i == path.length-1 && path[i] == -1)) return false
   }
   return true
 }

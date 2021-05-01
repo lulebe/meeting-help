@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#12d5c2">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="Meeting Help">
+  <meta name="application-name" content="Meeting Help">
+  <meta name="msapplication-TileColor" content="#12d5c2">
+  <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#12d5c2">
+  <title>Meeting Help</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      overflow: auto;
+    }
+    .title {
+      position: static;
+    }
+    .card {
+      position: static;
+      overflow-y: initial;
+      margin-bottom: 24px;
+    }
+    #cards-list {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+    }
+    .highlighted {
+      outline: 5px solid darkred !important;
+    }
+    form {
+      display: block;
+      margin: 0 auto;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    input {
+      padding: 12px 16px;
+      border-radius: 50px;
+      border: 1px solid black;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Meeting Help - Support</h1>
+
+  <div class="language-picker">
+    <div class="btn-menu" onclick="toggleLanguageMenu()">
+      <img src="/images/translate.svg" class="translate">
+      <img src="/images/close.svg" class="close">
+    </div>
+    <div class="language-menu">
+      <img src="/images/de.svg" class="flag" onclick="setLanguage('de')">
+      <br>
+      <img src="/images/en.svg" class="flag" onclick="setLanguage('en')">
+    </div>
+  </div>
+
+  <form onsubmit="return false">
+    <input type="text" id="inp-code" placeholder="Searchcode">
+    <button type="submit" onclick="showCards()" class="warning">check code</button>
+  </form>
+
+  <div id="cards-list">
+
+  </div>
+
+  <script src="/js/libs/qwest.js"></script>
+  <script src="/js/support.js"></script>
+</body>
+</html>
