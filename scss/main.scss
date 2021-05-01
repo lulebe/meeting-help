@@ -150,11 +150,13 @@ button, .btn {
   .btn-menu {
     background-color: #eee;
     padding: 6px 8px;
+    width: 40px;
+    height: 40px;
     position: relative;
-    width: 52px;
-    height: 52px;
     @media (min-width: 850px) {
       padding: 12px 14px;
+      width: 52px;
+      height: 52px;
     }
     cursor: pointer;
     border-radius: 50px;
@@ -173,7 +175,10 @@ button, .btn {
     img.close {
       opacity: 0;
       transform: rotate(-90deg);
-      top: 13px;
+      top: 8px;
+      @media (min-width: 850px) {
+        top: 13px;
+      }
     }
     &.opened {
       background-color: #333;
