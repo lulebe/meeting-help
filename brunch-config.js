@@ -43,6 +43,7 @@ function compileTemplatesInFolder (dirPath) {
   const listing = fs.readdirSync(dirPath)
   listing
         .filter(item => fs.lstatSync(path.join(dirPath, item)).isFile())
+        .filter(item => item.substr(-4) == 'html')
         .forEach(item => {
           const html = htmlmin(fs.readFileSync(path.join(dirPath, item), 'utf-8'), {
             removeAttributeQuotes: true,
