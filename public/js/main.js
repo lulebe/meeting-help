@@ -102,6 +102,21 @@ function pathExists (path) {
     data = res
   })
   .then(() => {
-    showNextCard(renderCard([]))
+    if (window.location.hash.length) {
+      const hashPath = window.location.hash.substring(1).split('-')
+      if (!pathExists(hashPath)) return
+      currentPath = hashPath
+    }
+    showNextCard(renderCard(currentPath))
   })
 })()
+
+
+function hashHandler() {
+  const hashPath = window.location.hash.substring(1).split('-')
+  if (!pathExists(hashPath)) return
+  currentPath = hashPath
+  showNextCard(renderCard(currentPath))
+}
+
+window.addEventListener('hashchange', hashHandler, false)
