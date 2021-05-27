@@ -57,7 +57,9 @@ button, .btn {
   transition: transform 0.05s;
   outline: none;
   background: $primary-color;
-  color: white;
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
   border: none;
   &:hover {
     transform: scale(1.03);
